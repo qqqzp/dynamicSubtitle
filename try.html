@@ -1,59 +1,24 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
-    <style type="text/css">
-        #div1 {width:500px;height:400px;padding:10px;border:1px solid #aaaaaa;
-            background-size: 100%,100%;
-            background: url(1.png) no-repeat;
-            /*文字样式*/
-
-            font-size: 10px;
-            font-weight: bold;
-            text-align: center;
-            line-height: 30px;
-            /*图片文字样式*/
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;}
+    <title>jQuery UI 拖动（Draggable） - 默认功能</title>
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <style>
     </style>
-    <script type="text/javascript">
-        function allowDrop(event) {
-
-    }
-
-     const drag = document.getElementById('drag');
-     const  drop = document.getElementById('drop');
-        drop.ondragover = function(evt){
-            evt.preventDefault(); // 这样才能触发drop的drop事件
-        };
-        drag.ondragstart = function(evt){
-            evt.dataTransfer.setData('Text', drop.innerText);
-        };
-        drop.ondragover = function(evt){
-            evt.preventDefault(); // 这样才能触发drop的drop事件
-        };
-        drop.ondragend = function (evt) {
-            let li = document.createElement("li");
-            drop.appendChild(li);
-            evt.preventDefault(); // 这样才能触发drop的drop事件
-        }
+    <script>
+        $(function() {
+            $( "#draggable" ).draggable();
+        });
     </script>
 </head>
 <body>
 
-<div id="div1" >
-
+<div id="draggable" class="ui-widget-content">
+    <p>请拖动我！</p>
 </div>
-<ul id = "drop">
-    <li>第一条</li>
-    <li>第二条</li>
-    <li>第三条</li>
-    <li>第四条</li>
-</ul>
-<canvas></canvas>
-<br />
-<p id="drag" draggable="true" ondragstart="drag(event)">这是一段可移动的段落。请把该段落拖入上面的矩形。</p>
+<div id="el"></div>
 
 </body>
 </html>
